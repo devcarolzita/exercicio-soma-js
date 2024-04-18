@@ -1,0 +1,19 @@
+{
+  "name": "soma",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest --verbose --coverage --coverageReporters='text-summary' > src/coberturatxt.txt"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "jest-summary-reporter": "^0.0.2"
+  }
+}
