@@ -1,0 +1,32 @@
+name: Validar Testes Jest
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validar-testes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v3
+
+      - name: Instalar Node.js
+        run: |
+          curl -sL https://deb.nodesource.com/setup_16.x | bash -s
+          sudo apt-get install -y nodejs
+
+      - name: Instalar Dependências
+        run: npm install
+
+      - name: Executar Testes Jest
+        run: npm test --verbose --coverage --coverageReporters='text-summary' > src/coberturatxt.txt
+
+      - name: Persistir Resultados dos Testes
+        uses: actions/upload-artifact@v3
+        with:
+          name: resultados-testes
+          path: src/coberturatxt.txt
