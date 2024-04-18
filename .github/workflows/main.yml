@@ -16,7 +16,7 @@ jobs:
 
       - name: Instalar Node.js
         run: |
-          curl -sL https://deb.nodesource.com/setup_16.x | bash -s
+          curl -sL https://deb.nodesource.com/setup_22.x | bash -s
           sudo apt-get install -y nodejs
 
       - name: Instalar Dependências
